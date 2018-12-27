@@ -17,7 +17,7 @@ export class RecipeListComponent implements OnInit {
       'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg'
     ),
     new Recipe(
-      'Pizza',
+      'More Pizza!',
       'Looks delicious!',
       // tslint:disable-next-line:max-line-length
       'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg'
