@@ -7,6 +7,6 @@ export class DataStorageService {
   constructor(private http: Http, private recipeService: RecipeService) {}
 
   storeRecipes() {
-    this.http.put('https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes());
+    return this.http.put('https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes());
   }
 }
