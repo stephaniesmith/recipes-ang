@@ -31,9 +31,9 @@ import { RecipesModule } from './recipes/recipes.module';
   imports: [
     BrowserModule,
     FormsModule,
+    RecipesModule,
     AppRoutingModule,
     HttpModule,
-    RecipesModule
   ],
   providers: [
     ShoppingListService,
