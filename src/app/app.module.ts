@@ -27,9 +27,9 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     BrowserModule,
     HttpModule,
     RecipesModule,
-    ShoppingListModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ShoppingListModule
   ],
   providers: [
     ShoppingListService,
