@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
 
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
@@ -17,11 +17,18 @@ export class DataStorageService {
   storeRecipes() {
     const token = this.authService.getToken();
 
-    return this.httpClient.put('https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
-      observe: 'body',
+    // return this.httpClient.put('https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
+    //   observe: 'body',
+    //   params: new HttpParams().set('auth', token)
+    //   // headers: new HttpHeaders().set('Authorization', 'Bearer askdfj')
+    // });
+
+    const req = new HttpRequest('PUT', 'https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
+      reportProgress: true,
       params: new HttpParams().set('auth', token)
-      // headers: new HttpHeaders().set('Authorization', 'Bearer askdfj')
     });
+
+    return this.httpClient.request(req);
   }
 
   getRecipes() {
