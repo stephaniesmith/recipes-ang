@@ -15,7 +15,7 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
 
     // return this.httpClient.put('https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
     //   observe: 'body',
@@ -25,7 +25,7 @@ export class DataStorageService {
 
     const req = new HttpRequest('PUT', 'https://alchemy-recipe-book.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
       reportProgress: true,
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', token)
     });
 
     return this.httpClient.request(req);
@@ -37,7 +37,7 @@ export class DataStorageService {
     return this.httpClient.get<Recipe[]>('https://alchemy-recipe-book.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json',
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', token)
     })
       .pipe(map(recipes => {
         return recipes.map((recipe: Recipe) => {
