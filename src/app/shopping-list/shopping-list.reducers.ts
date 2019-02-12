@@ -13,7 +13,7 @@ const initialState = {
 export function shoppingListReducer(state = initialState, action: Action) {
   switch(action.type) {
     case ADD_INGREDIENT:
-      return { ...state, ingredients: [...state.ingredients, action.payload]}
+      return { ...state, ingredients: [...state.ingredients, action] };
     default:
       return state;
   }
