@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Ingredient } from '../shared/ingredient.model';
 import { Observable } from 'rxjs';
-import { AppState } from './store/shopping-list.reducers';
+import { AppState } from '../store/app.reducers';
 import { StartEdit } from './store/shopping-list.actions';
 
 @Component({
