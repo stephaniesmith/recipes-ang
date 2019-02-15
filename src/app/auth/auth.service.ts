@@ -7,13 +7,18 @@ import { Signup, Signin, SetToken, Logout } from './store/auth.actions';
 
 @Injectable()
 export class AuthService {
-  
+
   constructor(private router: Router, private store: Store<AppState>) {}
 
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(user => {
         this.store.dispatch(new Signup());
+
+        firebase.auth().currentUser.getIdToken()
+        .then((token: string) => {
+          this.store.dispatch(new SetToken(token));
+        });
       })
       .catch(error => console.log(error));
   }
