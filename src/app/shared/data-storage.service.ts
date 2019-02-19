@@ -32,7 +32,7 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
+    // const token = this.authService.getToken();
 
     return this.httpClient.get<Recipe[]>('https://alchemy-recipe-book.firebaseio.com/recipes.json', {
       observe: 'body',
