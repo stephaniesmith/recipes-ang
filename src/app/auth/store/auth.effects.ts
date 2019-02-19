@@ -4,6 +4,7 @@ import { TRY_SIGNUP, TrySignup, SIGNUP, SET_TOKEN, TRY_SIGNIN, SIGNIN } from './
 import { map, switchMap, mergeMap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 import { from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -28,8 +29,11 @@ export class AuthEffects {
       return from(firebase.auth().signInWithEmailAndPassword(email, password));
     }),
     switchMap(() => from(firebase.auth().currentUser.getIdToken())),
-    mergeMap((token: string) => [{ type: SIGNIN }, { type: SET_TOKEN, payload: token }])
+    mergeMap((token: string) => {
+      this.router.navigate(['/']);
+      return [{ type: SIGNIN }, { type: SET_TOKEN, payload: token }];
+    })
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions, private router: Router) {}
 }
