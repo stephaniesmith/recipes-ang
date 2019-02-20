@@ -6,6 +6,7 @@ import { AddIngredients } from '../../shopping-list/store/shopping-list.actions'
 import { Observable } from 'rxjs';
 import { State as RecipeState, FeatureState} from '../store/recipe.reducers';
 import { take } from 'rxjs/operators';
+import { DeleteRecipe } from '../store/recipe.actions';
 
 
 @Component({
@@ -45,7 +46,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
+    this.store.dispatch(new DeleteRecipe(this.id));
     this.router.navigate(['/recipes']);
   }
 
