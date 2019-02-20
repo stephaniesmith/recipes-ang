@@ -8,7 +8,6 @@ import { State as RecipeState, FeatureState} from '../store/recipe.reducers';
 import { take } from 'rxjs/operators';
 import { DeleteRecipe } from '../store/recipe.actions';
 
-
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
