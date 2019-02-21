@@ -1,7 +1,7 @@
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { TRY_SIGNUP, TrySignup, SIGNUP, SET_TOKEN, TRY_SIGNIN, SIGNIN, LOGOUT } from './auth.actions';
-import { map, switchMap, mergeMap } from 'rxjs/operators';
+import { map, switchMap, mergeMap, tap } from 'rxjs/operators';
 import * as firebase from 'firebase';
 import { from } from 'rxjs';
 import { Router } from '@angular/router';
@@ -38,7 +38,7 @@ export class AuthEffects {
   @Effect({ dispatch: false })
   authLogout = this.actions$.pipe(
     ofType(LOGOUT),
-    map(() => this.router.navigate(['/']))
+    tap(() => this.router.navigate(['/']))
   );
 
   constructor(private actions$: Actions, private router: Router) {}
