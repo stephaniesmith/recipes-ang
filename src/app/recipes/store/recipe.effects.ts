@@ -1,5 +1,5 @@
 import { Effect, Actions, ofType } from '@ngrx/effects';
-import { FETCH_RECIPES, FetchRecipes, SET_RECIPES, STORE_RECIPES } from './recipe.actions';
+import { FETCH_RECIPES, FetchRecipes, STORE_RECIPES, SET_RECIPES } from './recipe.actions';
 import { switchMap, map, withLatestFrom } from 'rxjs/operators';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Recipe } from '../recipe.model';
