@@ -5,6 +5,7 @@ import { AppState } from 'src/app/store/app.reducers';
 import { Observable } from 'rxjs';
 import { State as AuthState } from '../../auth/store/auth.reducer';
 import { Logout } from 'src/app/auth/store/auth.actions';
+import { FetchRecipes, StoreRecipes } from 'src/app/recipes/store/recipe.actions';
 
 @Component({
   selector: 'app-header',
@@ -24,14 +25,11 @@ export class HeaderComponent implements OnInit {
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes()
-      .subscribe((response) => {
-        console.log(response);
-      });
+    this.store.dispatch(new StoreRecipes());
   }
 
   onFetchData() {
-    this.dataStorageService.getRecipes();
+    this.store.dispatch(new FetchRecipes());
   }
 
   onLogout() {
