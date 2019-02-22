@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.reducers';
+import { AppState } from '../../store/app.reducers';
 import { Observable } from 'rxjs';
 import { State as AuthState } from '../../auth/store/auth.reducer';
-import { Logout } from 'src/app/auth/store/auth.actions';
-import { FetchRecipes, StoreRecipes } from 'src/app/recipes/store/recipe.actions';
+import { Logout } from '../../auth/store/auth.actions';
+import { FetchRecipes, StoreRecipes } from '../../recipes/store/recipe.actions';
 
 @Component({
   selector: 'app-header',
