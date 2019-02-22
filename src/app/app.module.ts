@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'alchemy-recipe' }),
+    BrowserModule.withServerTransition({ appId: 'recipes-ang' }),
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
